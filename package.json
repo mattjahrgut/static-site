@@ -1,0 +1,18 @@
+{
+  "name": "static-site",
+  "version": "1.0.0",
+  "description": "A simple static site generator with Markdown support",
+  "main": "build.js",
+  "scripts": {
+    "build": "python3 build.py",
+    "dev": "python3 build.py && cd dist && python3 -m http.server 8000"
+  },
+  "dependencies": {
+    "marked": "^9.1.6",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {},
+  "keywords": ["static-site", "markdown", "html"],
+  "author": "",
+  "license": "MIT"
+}
