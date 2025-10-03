@@ -1,23 +1,22 @@
-# Blog
+# Cat Blog
 
-Welcome to my blog! Here you'll find thoughts, tutorials, and updates.
+Welcome to the purr-fect blog for cat lovers! Here you'll find everything feline - from care tips to adorable stories.
 
 ## Recent Posts
 
-- [My First Blog Post](/blog-post-1.html) - Getting started with static sites
-- [Learning Web Development](/blog-post-2.html) - My journey into web development
+{{BLOG_POSTS_LIST}}
 
 ## About This Blog
 
-This blog is built with Markdown, making it easy to write and maintain. Each post is a simple Markdown file that gets converted to HTML during the build process.
+This blog celebrates our feline friends with heartwarming stories, practical care tips, and insights into the wonderful world of cats. Each post is crafted with love for our whiskered companions.
 
-## Writing Process
+## What You'll Find
 
-1. Create a new Markdown file
-2. Write your content
-3. Run the build script
-4. Your post is live!
+- **Cat Care Tips**: Expert advice on keeping your cat healthy and happy
+- **Behavior Insights**: Understanding why cats do what they do
+- **Fun Stories**: Heartwarming tales from the cat community
+- **Product Reviews**: The best toys, food, and accessories for cats
 
 ---
 
-*More posts coming soon...*
+*More meow-some content coming soon...*

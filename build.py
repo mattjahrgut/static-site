@@ -30,11 +30,18 @@ def markdown_to_html(markdown_text):
     return md.convert(markdown_text)
 
 def process_file(input_path, output_path, template_name, title):
-    """Process a markdown file and generate HTML."""
+    """Process a markdown or HTML file and generate HTML."""
     try:
-        # Read markdown content
-        markdown_content = Path(input_path).read_text(encoding='utf-8')
-        html_content = markdown_to_html(markdown_content)
+        # Read content
+        content = Path(input_path).read_text(encoding='utf-8')
+        
+        # Check if it's HTML or Markdown
+        if input_path.endswith('.html'):
+            # Use HTML content directly
+            html_content = content
+        else:
+            # Convert markdown to HTML
+            html_content = markdown_to_html(content)
         
         # Read template
         template = read_template(template_name)
@@ -72,20 +79,73 @@ def build():
         shutil.rmtree('dist')
     Path('dist').mkdir()
     
-    # Define pages to process
-    pages = [
-        {'input': 'src/content/index.md', 'output': 'dist/index.html', 'template': 'page', 'title': 'Home'},
+    # Define static pages
+    static_pages = [
+        {'input': 'src/content/index.html', 'output': 'dist/index.html', 'template': 'index', 'title': 'Home'},
         {'input': 'src/content/about.md', 'output': 'dist/about.html', 'template': 'page', 'title': 'About'},
         {'input': 'src/content/faq.md', 'output': 'dist/faq.html', 'template': 'page', 'title': 'FAQ'},
-        {'input': 'src/content/blog.md', 'output': 'dist/blog.html', 'template': 'page', 'title': 'Blog'},
-        {'input': 'src/content/blog-post-1.md', 'output': 'dist/blog-post-1.html', 'template': 'blog', 'title': 'My First Blog Post'},
-        {'input': 'src/content/blog-post-2.md', 'output': 'dist/blog-post-2.html', 'template': 'blog', 'title': 'Learning Web Development'}
+        {'input': 'src/content/blog.md', 'output': 'dist/blog.html', 'template': 'page', 'title': 'Blog'}
     ]
+    
+    # Auto-discover blog posts
+    blog_posts = []
+    content_dir = Path('src/content')
+    if content_dir.exists():
+        for file_path in content_dir.glob('blog-post-*.md'):
+            # Extract post number and create title
+            filename = file_path.stem  # e.g., 'blog-post-1'
+            post_num = filename.split('-')[-1]  # e.g., '1'
+            
+            # Read first line to get the title (remove # and strip)
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    first_line = f.readline().strip()
+                    if first_line.startswith('#'):
+                        title = first_line[1:].strip()
+                    else:
+                        title = f"Blog Post {post_num}"
+            except:
+                title = f"Blog Post {post_num}"
+            
+            blog_posts.append({
+                'input': str(file_path),
+                'output': f'dist/{filename}.html',
+                'template': 'blog',
+                'title': title
+            })
+    
+    # Combine all pages
+    pages = static_pages + blog_posts
+    
+    # Generate blog posts list for blog.md
+    blog_posts_list = ""
+    for post in sorted(blog_posts, key=lambda x: x['input'], reverse=True):  # Sort by filename, newest first
+        if Path(post['input']).exists():
+            # Extract post number for display
+            filename = Path(post['input']).stem
+            post_num = filename.split('-')[-1]
+            blog_posts_list += f"- [{post['title']}](/{filename}.html) - Cat story #{post_num}\n"
     
     # Process each page
     for page in pages:
         if Path(page['input']).exists():
-            process_file(page['input'], page['output'], page['template'], page['title'])
+            # Special handling for blog.md to replace blog posts list
+            if page['input'] == 'src/content/blog.md':
+                # Read the blog.md content
+                content = Path(page['input']).read_text(encoding='utf-8')
+                # Replace the placeholder with actual blog posts list
+                content = content.replace('{{BLOG_POSTS_LIST}}', blog_posts_list)
+                # Convert to HTML
+                html_content = markdown_to_html(content)
+                # Read template
+                template = read_template(page['template'])
+                # Replace placeholders
+                html = template.replace('{{title}}', page['title']).replace('{{content}}', html_content)
+                # Write HTML file
+                Path(page['output']).write_text(html, encoding='utf-8')
+                print(f"Generated: {page['output']}")
+            else:
+                process_file(page['input'], page['output'], page['template'], page['title'])
     
     # Copy assets
     copy_assets()

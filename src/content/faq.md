@@ -1,42 +1,35 @@
-# Frequently Asked Questions
+# Cat Care FAQ
 
-## How do I add new pages?
+## How often should I feed my cat?
 
-1. Create a new Markdown file in `src/content/`
-2. Add it to the pages array in `build.js`
-3. Run `npm run build`
+Most adult cats do well with two meals per day, but this can vary based on age, health, and activity level. Kittens need more frequent feeding (3-4 times daily), while senior cats might prefer smaller, more frequent meals.
 
-## How do I add a new blog post?
+## Why does my cat knead me?
 
-1. Create a new Markdown file in `src/content/` (e.g., `blog-post-3.md`)
-2. Add it to the pages array in `build.js` with template: 'blog'
-3. Run `npm run build`
+Kneading (also called "making biscuits") is a comforting behavior from kittenhood. When cats knead, they're showing contentment and marking you with their scent glands. It's a sign of trust and affection!
 
-## How do I customize the styling?
+## How can I tell if my cat is sick?
 
-Edit the CSS file at `src/assets/css/style.css`. The build process will copy it to the output directory.
+Watch for changes in:
+- **Appetite**: Eating more or less than usual
+- **Litter box habits**: Frequency or consistency changes
+- **Energy levels**: Unusual lethargy or hyperactivity
+- **Behavior**: Hiding, aggression, or unusual vocalization
 
-## How do I add JavaScript?
+When in doubt, consult your veterinarian.
 
-Place your JavaScript files in `src/assets/js/` and they'll be copied to the output directory.
+## Should I let my cat go outside?
 
-## Can I use this for a real website?
+This is a personal decision with pros and cons. Indoor cats typically live longer and are safer from predators, cars, and diseases. If you do let your cat outside, consider supervised time or a secure outdoor enclosure.
 
-Absolutely! This setup is perfect for:
-- Personal blogs
-- Documentation sites
-- Portfolio websites
-- Small business sites
+## Why does my cat bring me "gifts"?
 
-## How do I deploy this?
+When your cat brings you dead (or sometimes live) prey, they're showing you they care! In the wild, mother cats bring food to their kittens, so your cat is treating you like family.
 
-You can deploy the contents of the `dist/` folder to any static hosting service like:
-- GitHub Pages
-- Netlify
-- Vercel
-- AWS S3
-- Any web server
+## How can I stop my cat from scratching furniture?
 
-## Do I need to know programming?
+Provide appropriate scratching posts and pads. Place them near furniture your cat likes to scratch. Use positive reinforcement when they use the right surfaces, and consider deterrents like double-sided tape on furniture.
 
-Basic knowledge of HTML, CSS, and Markdown is helpful, but the setup is designed to be as simple as possible.
+## Is it normal for my cat to sleep so much?
+
+Yes! Adult cats sleep 12-16 hours per day on average. This is normal behavior - cats are crepuscular (most active at dawn and dusk) and conserve energy for hunting and play.
