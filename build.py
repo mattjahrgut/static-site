@@ -20,6 +20,11 @@ except ImportError:
 # Configure markdown
 md = markdown.Markdown(extensions=['extra', 'codehilite'])
 
+# Base URL for GitHub Pages (replace with your actual repository name)
+# If your repo is 'Static-Site', the base URL should be '/Static-Site'
+# If your repo is 'username.github.io', the base URL should be '' (empty)
+BASE_URL = '/Static-Site'  # Update this to match your repository name
+
 def read_template(template_name):
     """Read HTML template file."""
     template_path = Path('src/templates') / f'{template_name}.html'
@@ -47,7 +52,7 @@ def process_file(input_path, output_path, template_name, title):
         template = read_template(template_name)
         
         # Replace placeholders
-        html = template.replace('{{title}}', title).replace('{{content}}', html_content)
+        html = template.replace('{{title}}', title).replace('{{content}}', html_content).replace('{{base_url}}', BASE_URL)
         
         # Ensure output directory exists
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
@@ -124,7 +129,7 @@ def build():
             # Extract post number for display
             filename = Path(post['input']).stem
             post_num = filename.split('-')[-1]
-            blog_posts_list += f"- [{post['title']}](/{filename}.html) - Cat story #{post_num}\n"
+            blog_posts_list += f"- [{post['title']}]({BASE_URL}/{filename}.html) - Cat story #{post_num}\n"
     
     # Process each page
     for page in pages:
@@ -140,7 +145,7 @@ def build():
                 # Read template
                 template = read_template(page['template'])
                 # Replace placeholders
-                html = template.replace('{{title}}', page['title']).replace('{{content}}', html_content)
+                html = template.replace('{{title}}', page['title']).replace('{{content}}', html_content).replace('{{base_url}}', BASE_URL)
                 # Write HTML file
                 Path(page['output']).write_text(html, encoding='utf-8')
                 print(f"Generated: {page['output']}")
