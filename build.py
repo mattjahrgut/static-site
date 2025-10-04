@@ -25,7 +25,8 @@ md = markdown.Markdown(extensions=['extra', 'codehilite'])
 # If your repo is 'username.github.io', the base URL should be '' (empty)
 # For local development, this will be empty
 import os
-BASE_URL = '/static-site' if os.environ.get('GITHUB_ACTIONS') else ''
+# Always use the GitHub Pages base URL for consistency
+BASE_URL = '/static-site'
 
 def read_template(template_name):
     """Read HTML template file."""
