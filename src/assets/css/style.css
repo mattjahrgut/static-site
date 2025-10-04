@@ -311,11 +311,21 @@ footer p {
         flex-direction: column;
         height: auto;
         padding: 1rem 20px;
+        align-items: center;
     }
     
     .nav-links {
         margin-top: 1rem;
         gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: row !important;
+        display: flex !important;
+    }
+    
+    .nav-links li {
+        display: inline-block;
+        margin: 0 0.5rem;
     }
     
     h1 {
