@@ -23,10 +23,13 @@ md = markdown.Markdown(extensions=['extra', 'codehilite'])
 # Base URL for GitHub Pages (replace with your actual repository name)
 # If your repo is 'static-site', the base URL should be '/static-site' (lowercase)
 # If your repo is 'username.github.io', the base URL should be '' (empty)
-# For local development, this will be empty
-import os
-# Always use the GitHub Pages base URL for consistency
-BASE_URL = '/static-site'
+# Detect environment and set appropriate base URL
+if os.environ.get('GITHUB_ACTIONS'):
+    # GitHub Pages deployment
+    BASE_URL = '/static-site'
+else:
+    # Local development
+    BASE_URL = ''
 
 def read_template(template_name):
     """Read HTML template file."""

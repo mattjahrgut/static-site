@@ -18,6 +18,6 @@ Cats are fascinating creatures that bring joy, comfort, and endless entertainmen
 
 To create a community where cat lovers can share experiences, learn from each other, and celebrate the wonderful world of cats. Whether you're a first-time cat owner or a seasoned feline enthusiast, there's something here for everyone.
 
-## Get Involved
+## Want to learn more?
 
-Have a cat story to share? Check out our [blog](/blog.html) or reach out through our [contact page](/faq.html)!
+Check out our [blog](/blog.html) or read our [FAQs](/faq.html)!
