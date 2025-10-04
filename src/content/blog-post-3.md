@@ -33,6 +33,3 @@ Jeffrey’s days were structured, almost ceremonial:
 
 Jeffrey was more than just a pet; he was a presence—calm, steady, and larger than life. He embodied everything that makes Norwegian Forest Cats so beloved: strength, elegance, and a heart as big as his paws.
 
----
-
-*Thanks for meeting Jeffrey! Stay tuned for more stories about remarkable cats and their larger-than-life personalities.*  

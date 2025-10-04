@@ -20,4 +20,4 @@ To create a community where cat lovers can share experiences, learn from each ot
 
 ## Want to learn more?
 
-Check out our [blog](/blog.html) or read our [FAQs](/faq.html)!
+Check out our [blog]({{base_url}}/blog.html) or read our [FAQs]({{base_url}}/faq.html)!

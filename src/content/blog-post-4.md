@@ -33,6 +33,4 @@ Sylvie’s days were choreographed like a dance:
 
 Sylvie was more than a sleek, silver cat—she was a mystery wrapped in fur, a living poem that shimmered in every corner she graced. To know her was to admire her beauty, but to live with her was to witness the quiet magic of elegance in motion.
 
----
 
-*Thanks for reading Sylvie’s story! Next time, we’ll share another tale from the world of extraordinary cats.*  

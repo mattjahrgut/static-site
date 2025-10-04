@@ -48,6 +48,4 @@ I’m planning to add more cat-centric features like:
 
 Sometimes the best companions are the ones who say the least and purr the most. Cats prove you don’t need complex plans to have a great day—just a sunny spot, a silly toy, and someone to share the couch.
 
----
 
-*Thanks for reading! Check out my [next post](/blog-post-2.html) about “Training Your Human: A Beginner’s Guide.”*

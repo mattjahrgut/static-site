@@ -155,6 +155,42 @@ def build():
                 # Write HTML file
                 Path(page['output']).write_text(html, encoding='utf-8')
                 print(f"Generated: {page['output']}")
+            # Special handling for blog posts to add next post links
+            elif page['input'].startswith('src/content/blog-post-'):
+                # Read the blog post content
+                content = Path(page['input']).read_text(encoding='utf-8')
+                
+                # Find the current post number
+                current_filename = Path(page['input']).stem
+                current_num = int(current_filename.split('-')[-1])
+                
+                # Find the next post
+                next_post = None
+                for post in sorted(blog_posts, key=lambda x: int(Path(x['input']).stem.split('-')[-1])):
+                    post_num = int(Path(post['input']).stem.split('-')[-1])
+                    if post_num == current_num + 1:
+                        next_post = post
+                        break
+                
+                # Add next post link if it exists
+                if next_post:
+                    next_filename = Path(next_post['input']).stem
+                    next_title = next_post['title']
+                    next_link = f"\n\n---\n\n*Thanks for reading! Check out my [next post]({BASE_URL}/{next_filename}.html) about \"{next_title}\".*"
+                    content += next_link
+                else:
+                    # No next post, add a different message
+                    content += f"\n\n---\n\n*Thanks for reading! This is the latest post. Check back soon for more cat stories!*"
+                
+                # Convert to HTML
+                html_content = markdown_to_html(content)
+                # Read template
+                template = read_template(page['template'])
+                # Replace placeholders
+                html = template.replace('{{title}}', page['title']).replace('{{content}}', html_content).replace('{{base_url}}', BASE_URL)
+                # Write HTML file
+                Path(page['output']).write_text(html, encoding='utf-8')
+                print(f"Generated: {page['output']}")
             else:
                 process_file(page['input'], page['output'], page['template'], page['title'])
     
