@@ -21,9 +21,9 @@ except ImportError:
 md = markdown.Markdown(extensions=['extra', 'codehilite'])
 
 # Base URL for GitHub Pages (replace with your actual repository name)
-# If your repo is 'Static-Site', the base URL should be '/Static-Site'
+# If your repo is 'Static-Site', the base URL should be '/static-site' (lowercase)
 # If your repo is 'username.github.io', the base URL should be '' (empty)
-BASE_URL = '/Static-Site'  # Update this to match your repository name
+BASE_URL = '/static-site'  # Update this to match your repository name (lowercase)
 
 def read_template(template_name):
     """Read HTML template file."""
