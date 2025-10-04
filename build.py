@@ -14,7 +14,7 @@ try:
 except ImportError:
     print("Installing markdown library...")
     import subprocess
-    subprocess.check_call(["pip3", "install", "markdown"])
+    subprocess.check_call(["pip3", "install", "-r", "requirements.txt"])
     import markdown
 
 # Configure markdown

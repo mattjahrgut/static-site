@@ -14,7 +14,7 @@ body {
 
 /* Container */
 .container {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -193,7 +193,7 @@ blockquote {
 footer {
     background: #f8fafc;
     border-top: 1px solid #e2e8f0;
-    padding: 2rem 0;
+    padding: 3rem 0 2rem 0;
     margin-top: 4rem;
 }
 
@@ -201,6 +201,108 @@ footer p {
     text-align: center;
     color: #64748b;
     margin: 0;
+}
+
+/* Content with Sidebar Layout */
+.content-with-sidebar {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0; /* Prevents flex item from overflowing */
+}
+
+.newsletter-sidebar {
+    flex: 0 0 300px; /* Fixed width sidebar */
+    position: sticky;
+    top: 2rem;
+}
+
+.newsletter-signup {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-signup h3 {
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter-signup p {
+    color: #64748b;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* ConvertKit Form Styling */
+.formkit-form {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.formkit-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.formkit-field {
+    flex: 1;
+}
+
+.formkit-input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+}
+
+.formkit-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.formkit-submit {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.formkit-submit:hover {
+    background: #1d4ed8;
+}
+
+.formkit-powered-by-convertkit-container {
+    margin-top: 0.5rem;
+}
+
+.formkit-powered-by-convertkit {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-decoration: none;
+}
+
+.formkit-powered-by-convertkit:hover {
+    color: #6b7280;
 }
 
 /* Responsive design */
@@ -242,6 +344,34 @@ footer p {
     
     main {
         padding: 1rem 0;
+    }
+    
+    .content-with-sidebar {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .newsletter-sidebar {
+        flex: none;
+        position: static;
+        order: 2; /* Move sidebar below content on mobile */
+    }
+    
+    .main-content {
+        order: 1; /* Content comes first on mobile */
+    }
+    
+    .newsletter-signup {
+        padding: 1.25rem;
+    }
+    
+    .formkit-fields {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .formkit-submit {
+        width: 100%;
     }
 }
 

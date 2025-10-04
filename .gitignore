@@ -19,3 +19,7 @@ Thumbs.db
 # Environment files
 .env
 .env.local
+
+# Python virtual environment
+venv/
+env/
